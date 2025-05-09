@@ -1,0 +1,5 @@
+{
+    "C_Cpp.default.compilerPath": "C:/msys64/mingw64/bin/gcc.exe",
+    "dotnet-acquisition.sharedExistingDotNetPath": "C:\\Program Files\\dotnet\\dotnet.exe",
+    "omnisharp.dotnetPath": "C:\\Program Files\\dotnet"
+}

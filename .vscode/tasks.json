@@ -1,0 +1,46 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Hypervisor",
+      "type": "shell",
+      "group": { "kind": "build", "isDefault": true },
+      "command": "C:/msys64/usr/bin/make",
+      "args": [
+        "-C",
+        "/c/Users/Simikaze/Desktop/Проекты/hypervisor"
+      ],
+      "options": {
+        "shell": {
+          "executable": "C:/msys64/usr/bin/bash.exe",
+          "args": ["-lc"]
+        },
+        "env": {
+          "PATH": "C:/msys64/mingw64/bin;${env:PATH}"
+        }
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run in QEMU",
+      "type": "shell",
+      "dependsOn": "Build Hypervisor",
+      "command": "C:/msys64/usr/bin/bash.exe",
+      "args": [
+        "-lc",
+        "export PATH=/c/msys64/mingw64/bin:$PATH && qemu-system-x86_64 -enable-kvm -cpu host -m 1G -kernel /c/Users/Simikaze/Desktop/Проекты/hypervisor/build/kernel.bin -nographic -serial mon:stdio"
+      ],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
